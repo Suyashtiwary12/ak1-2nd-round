@@ -1,0 +1,28 @@
+.pagination {
+  justify-content: center;
+}
+
+.display-header {
+  float: right;
+}
+
+.display-bar {
+  background-color: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+}
+
+.moving-icon {
+  position: absolute; /* Position the icon absolutely within the container */
+  animation: moveIcon 2s infinite linear; /* Apply the moveIcon animation */
+  margin-top: 2rem;
+}
+
+@keyframes moveIcon {
+  from {
+    transform: rotate(0deg); /* Start rotation from 0 degrees */
+}
+to {
+    transform: rotate(360deg); /* Rotate icon 360 degrees */
+}
+}
