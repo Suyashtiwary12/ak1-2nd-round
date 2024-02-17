@@ -22,14 +22,16 @@ export function Dashboard() {
 
     return (
         <>
-        {users.length === 0 && (
+        
+        {users.length === 0 ? (
                 <div className="text-center">
                     <AiOutlineLoading className="moving-icon" />
                     <p>Loading...</p>
                 </div>
-            )}
-
+            ): <h1 className="text-center">User List</h1>}
+           
             {users.length > 0 && currentPosts.map((user) => (
+                
                 <div key={user.createdAt} className="d-flex align-items-start">
                     <div className="card d-flex" style={{ width: "30rem", margin: "2rem" }}>
                         <div class="container text-center">
@@ -51,15 +53,15 @@ export function Dashboard() {
                     <div className="flex-grow-1">
                         {selectedUser && selectedUser.createdAt === user.createdAt && (
                             <DisplayBar>
-                                <div className="mx-3">
+                                <div className="m-3">
                                     <header className="d-flex justify-content-around">
                                         <h2>User Details</h2>
                                         <button type="button" className="btn-close" aria-label="Close" onClick={() => {
                                             setSelectedUser(null)
                                         }}></button>
                                     </header>
-                                    <img src={selectedUser.avatar} alt="No image" style={{}} />
-                                    <ul>
+                                    <img src={selectedUser.avatar} alt="No image" style={{maxWidth:"100%"}} />
+                                    <ul style={{maxWidth:"100%", overflow:"auto"}}>
                                         <li>First Name: {selectedUser.profile.firstName}</li>
                                         <li>Last Name: {selectedUser.profile.lastName}</li>
                                         <li>Username: {selectedUser.profile.username}</li>
